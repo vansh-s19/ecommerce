@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Price Predictor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="cosmic-bg">
+    <div class="stars"></div>
+    <div class="container">
+        <header class="header">
+            <div class="header-content glass-card">
+                <div class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h1>Gemini Price Predictor</h1>
+                </div>
+                <p class="tagline">Accurate, real-time pricing for the Indian market.</p>
+            </div>
+        </header>
+
+        <section class="input-section glass-card fade-in" id="inputSection">
+            <div class="section-header">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h2>Predict Product Price</h2>
+            </div>
+            <div class="input-group">
+                <label for="specsInput">Enter product specifications:</label>
+                <textarea id="specsInput" rows="5" placeholder="e.g., Apple iPhone 15 Pro Max 256GB Gold, Samsung 7.5 kg 5 Star Inverter Washing Machine, Dell XPS 15 i9 32GB RAM"></textarea>
+            </div>
+            <button id="predictBtn" class="predict-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+                Predict Price
+            </button>
+        </section>
+
+        <section class="loading-section glass-card hidden fade-in" id="loadingSection">
+            <div class="loader-container">
+                <div class="cosmic-loader">
+                    <div class="orbit">
+                        <div class="planet"></div>
+                    </div>
+                    <div class="orbit">
+                        <div class="planet planet-2"></div>
+                    </div>
+                    <div class="orbit">
+                        <div class="planet planet-3"></div>
+                    </div>
+                </div>
+                <div class="loading-text">
+                    <h3>Scanning the market...</h3>
+                    <p>Fetching the latest data and analyzing specifications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section glass-card hidden fade-in" id="resultsSection">
+            <div class="section-header">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Prediction Results</h2>
+            </div>
+            <div class="result-card">
+                <div class="result-grid">
+                    <div class="price-display">
+                        <p class="price-label">Predicted Price (INR)</p>
+                        <h2 class="price-value" id="predictedPrice">₹0</h2>
+                        <p class="price-range" id="priceRange">Range: ₹0 - ₹0</p>
+                    </div>
+                    <div class="product-info">
+                        <div class="info-item">
+                            <i class="fa-solid fa-box"></i>
+                            <div class="info-content">
+                                <span class="info-label">Product Name</span>
+                                <strong class="info-value" id="productName">N/A</strong>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-tag"></i>
+                            <div class="info-content">
+                                <span class="info-label">Category</span>
+                                <strong class="info-value" id="productCategory">N/A</strong>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div class="info-content">
+                                <span class="info-label">Confidence</span>
+                                <strong class="info-value" id="confidenceValue">0%</strong>
+                            </div>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-track">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-specs-section">
+                    <h3 class="section-header-no-icon"><i class="fa-solid fa-list-check"></i> Specifications</h3>
+                    <div class="specs-grid">
+                        </div>
+                </div>
+
+                <div class="explanation-section">
+                    <h3 class="section-header-no-icon"><i class="fa-solid fa-comment-dots"></i> Explanation</h3>
+                    <ul class="explanation-list" id="explanationList">
+                    </ul>
+                </div>
+
+                <div class="anomalies-section hidden" id="anomaliesSection">
+                    <h3 class="section-header-no-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Anomalies Detected
+                    </h3>
+                    <div class="anomalies-list" id="anomaliesList">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="error-section glass-card hidden fade-in" id="errorSection">
+            <div class="error-card">
+                <i class="fa-solid fa-circle-xmark error-icon"></i>
+                <h3>Prediction Failed</h3>
+                <p id="errorMessage">Something went wrong. Please check your input and try again.</p>
+                <button class="retry-btn">
+                    <i class="fa-solid fa-arrow-rotate-right"></i>
+                    Retry
+                </button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 Gemini Price Predictor. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
