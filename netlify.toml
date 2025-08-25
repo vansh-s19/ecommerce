@@ -1,0 +1,43 @@
+# Netlify Configuration for Indian Price Predictor
+
+[build]
+  publish = "frontend"  # Directory for static files
+  functions = "netlify/functions"  # Directory for serverless functions
+
+[build.environment]
+  NODE_VERSION = "18"  # Specify Node.js version
+
+# Functions bundler
+[functions]
+  node_bundler = "esbuild"  # Use esbuild for faster builds
+
+# Global security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# API specific headers (for Functions)
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Access-Control-Allow-Origin = "*"  # Consider restricting this to your domain
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+# Redirects for API requests
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Optional: Handle SPA (React/Vue/Angular) routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
