@@ -1,34 +1,7 @@
 {
-  "name": "indian-price-predictor",
+  "name": "pricesense-ai",
   "version": "1.0.0",
-  "description": "AI-powered Indian market price predictor using Gemini AI & backup model",
-  "main": "app.js",
-  "type": "module",
-  "scripts": {
-    "start": "netlify dev",
-    "build": "echo 'Build step not needed for frontend-only project'"
-  },
-  "keywords": [
-    "AI",
-    "Price",
-    "Predictor",
-    "Gemini AI",
-    "Netlify",
-    "Indian Market"
-  ],
-  "author": "Your Name",
-  "license": "MIT",
   "dependencies": {
-    "@google/generative-ai": "^0.2.1",
-    "node-fetch": "^3.3.2",       
-    "express": "^4.18.2",
-    "dotenv": "^16.3.1"
-  },
-  "devDependencies": {
-    "netlify-cli": "^12.0.0",
-    "esbuild": "^0.19.5"
-  },
-  "engines": {
-    "node": "18.x"
+    "node-fetch": "^2.6.7"
   }
 }
