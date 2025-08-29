@@ -1,140 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gemini Price Predictor</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceSense AI - Indian Market Price Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="cosmic-bg">
-    <div class="stars"></div>
-    <div class="container">
-        <header class="header">
-            <div class="header-content glass-card">
-                <div class="logo">
-                    <i class="fa-solid fa-rocket"></i>
-                    <h1>Gemini Price Predictor</h1>
-                </div>
-                <p class="tagline">Accurate, real-time pricing for the Indian market.</p>
-            </div>
-        </header>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">💰 PriceSense AI</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#predict">Predict</a></li>
+                    <li><a href="#about">How it Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <section class="input-section glass-card fade-in" id="inputSection">
-            <div class="section-header">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <h2>Predict Product Price</h2>
-            </div>
-            <div class="input-group">
-                <label for="specsInput">Enter product specifications:</label>
-                <textarea id="specsInput" rows="5" placeholder="e.g., Apple iPhone 15 Pro Max 256GB Gold, Samsung 7.5 kg 5 Star Inverter Washing Machine, Dell XPS 15 i9 32GB RAM"></textarea>
-            </div>
-            <button id="predictBtn" class="predict-btn">
-                <i class="fa-solid fa-paper-plane"></i>
-                Predict Price
-            </button>
-        </section>
-
-        <section class="loading-section glass-card hidden fade-in" id="loadingSection">
-            <div class="loader-container">
-                <div class="cosmic-loader">
-                    <div class="orbit">
-                        <div class="planet"></div>
-                    </div>
-                    <div class="orbit">
-                        <div class="planet planet-2"></div>
-                    </div>
-                    <div class="orbit">
-                        <div class="planet planet-3"></div>
-                    </div>
-                </div>
-                <div class="loading-text">
-                    <h3>Scanning the market...</h3>
-                    <p>Fetching the latest data and analyzing specifications.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="results-section glass-card hidden fade-in" id="resultsSection">
-            <div class="section-header">
-                <i class="fa-solid fa-chart-line"></i>
-                <h2>Prediction Results</h2>
-            </div>
-            <div class="result-card">
-                <div class="result-grid">
-                    <div class="price-display">
-                        <p class="price-label">Predicted Price (INR)</p>
-                        <h2 class="price-value" id="predictedPrice">₹0</h2>
-                        <p class="price-range" id="priceRange">Range: ₹0 - ₹0</p>
-                    </div>
-                    <div class="product-info">
-                        <div class="info-item">
-                            <i class="fa-solid fa-box"></i>
-                            <div class="info-content">
-                                <span class="info-label">Product Name</span>
-                                <strong class="info-value" id="productName">N/A</strong>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fa-solid fa-tag"></i>
-                            <div class="info-content">
-                                <span class="info-label">Category</span>
-                                <strong class="info-value" id="productCategory">N/A</strong>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <div class="info-content">
-                                <span class="info-label">Confidence</span>
-                                <strong class="info-value" id="confidenceValue">0%</strong>
-                            </div>
-                        </div>
-                        <div class="confidence-bar">
-                            <div class="confidence-track">
-                                <div class="confidence-fill" id="confidenceFill"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-specs-section">
-                    <h3 class="section-header-no-icon"><i class="fa-solid fa-list-check"></i> Specifications</h3>
-                    <div class="specs-grid">
-                        </div>
-                </div>
-
-                <div class="explanation-section">
-                    <h3 class="section-header-no-icon"><i class="fa-solid fa-comment-dots"></i> Explanation</h3>
-                    <ul class="explanation-list" id="explanationList">
-                    </ul>
-                </div>
-
-                <div class="anomalies-section hidden" id="anomaliesSection">
-                    <h3 class="section-header-no-icon">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Anomalies Detected
-                    </h3>
-                    <div class="anomalies-list" id="anomaliesList">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="error-section glass-card hidden fade-in" id="errorSection">
-            <div class="error-card">
-                <i class="fa-solid fa-circle-xmark error-icon"></i>
-                <h3>Prediction Failed</h3>
-                <p id="errorMessage">Something went wrong. Please check your input and try again.</p>
-                <button class="retry-btn">
-                    <i class="fa-solid fa-arrow-rotate-right"></i>
-                    Retry
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Input Panel -->
+        <div class="input-panel" id="inputSection">
+            <h1 class="panel-title">AI Price Predictor</h1>
+            <p class="panel-description">Enter detailed product specifications and get instant AI-powered market price predictions for the Indian market. Try examples like <span class="highlight">"iPhone 15 Pro 256GB used condition"</span> or <span class="highlight">"Dell XPS 13 laptop i7 16GB RAM"</span></p>
+            
+            <form class="input-form" id="inputForm">
+                <textarea 
+                    id="specsInput" 
+                    class="specs-input"
+                    placeholder="Enter product specifications here...&#10;&#10;Examples:&#10;• Samsung Galaxy S24 Ultra 512GB new&#10;• MacBook Air M2 8GB RAM used&#10;• Sony WH-1000XM4 headphones&#10;• OnePlus 12 256GB refurbished"
+                ></textarea>
+                <button type="submit" id="predictBtn" class="predict-btn">
+                    <span>🔮 Predict Price</span>
                 </button>
-            </div>
-        </section>
+            </form>
+        </div>
 
-        <footer class="footer">
-            <p>&copy; 2024 Gemini Price Predictor. All rights reserved.</p>
-        </footer>
+        <!-- Results Panel -->
+        <div class="results-panel">
+            <h2 class="results-title">Price Predictions</h2>
+            <p class="results-subtitle">Real-time AI analysis of Indian market prices</p>
+            
+            <!-- Loading Section -->
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loading-text">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing market data...</p>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-icon">⚠️</div>
+                <h3>Prediction Failed</h3>
+                <p id="errorMessage">Something went wrong. Please try again.</p>
+                <button class="retry-btn" onclick="document.getElementById('inputForm').dispatchEvent(new Event('submit'))">Try Again</button>
+            </div>
+
+            <!-- Results Container -->
+            <div id="resultsSection" class="results-container">
+                <!-- Empty State -->
+                <div class="empty-state">
+                    <div class="empty-state-icon">🔮</div>
+                    <h3>No Predictions Yet</h3>
+                    <p>Enter product details in the left panel to get started</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="app.js"></script>
 </body>
 </html>
